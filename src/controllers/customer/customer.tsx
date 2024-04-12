@@ -1,6 +1,6 @@
-import { HttpClient } from "@commons/http-client/index";
+import { fetchCustomerDataFromGitHub } from "src/diplomat/httpClient";
+import { Customer } from "src/domain/customer";
 
-export async function fetchUserDataController() {
-  const response = await HttpClient.get("https://api.github.com/users/omariosouto");
-  return response.data;
+export async function fetchUserDataController(): Promise<Customer> {
+  return fetchCustomerDataFromGitHub();
 }

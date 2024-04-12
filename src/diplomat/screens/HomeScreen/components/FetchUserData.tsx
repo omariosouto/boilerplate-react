@@ -1,15 +1,16 @@
 import React from "react";
 import { fetchUserDataController } from "../../../../controllers/customer/customer";
 import { useHandlerContext } from "@commons/handler-context";
+import { Customer } from "src/domain/customer";
 
 export function FetchUserData() {
   const { withHandlerContext } = useHandlerContext();
-  const [user, setUser] = React.useState(null);
+  const [user, setUser] = React.useState<Customer | null>(null);
 
   return (
     <div>
       <button
-        onClick={withHandlerContext(async ({ event }) => {
+        onClick={withHandlerContext(async () => {
           const data = await fetchUserDataController();
           setUser(data);
         })}

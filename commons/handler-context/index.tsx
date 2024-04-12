@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { AppContext, withHandlerContext } from "./withHandlerContext";
 import { CustomError } from "@commons/errors";

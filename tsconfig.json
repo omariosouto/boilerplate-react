@@ -6,6 +6,7 @@
       "dom.iterable",
       "esnext"
     ],
+    "strictNullChecks": true,
     "allowJs": true,
     "skipLibCheck": true,
     "strict": false,
@@ -29,7 +30,7 @@
       "@commons/handler-context": ["commons/handler-context/index.tsx"],
       "@commons/schema": ["commons/schema/index.ts"],
       "@commons/schema/*": ["commons/schema/*"],
-      "@commons/testing-library": ["commons/testing-library/index.tsx"],
+      "@commons/testing-library": ["commons/testing-library/index.tsx"]
     }
   },
   "include": [
