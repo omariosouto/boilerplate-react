@@ -23,7 +23,7 @@
     ],
     "baseUrl": ".",
     "paths": {
-      "@commons/http-client": ["commons/http-client"],
+      "@commons/http-client/*": ["commons/http-client/*"]
     }
   },
   "include": [
