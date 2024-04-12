@@ -29,6 +29,7 @@
       "@commons/handler-context": ["commons/handler-context/index.tsx"],
       "@commons/schema": ["commons/schema/index.ts"],
       "@commons/schema/*": ["commons/schema/*"],
+      "@commons/testing-library": ["commons/testing-library/index.tsx"],
     }
   },
   "include": [

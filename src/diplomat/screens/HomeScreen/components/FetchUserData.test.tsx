@@ -1,11 +1,13 @@
-import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 // ---------------
+import { customRender, screen, userEvent } from "@commons/testing-library";
 import { generate } from "@commons/schema/test-file";
 import { httpMock } from "@commons/http-client/test-file";
 // ---------------
 import { FetchUserData } from "./FetchUserData";
 import { CustomerLoginWireIn } from "src/wire/in/customer";
+import { HandlerContextProvider } from "@commons/handler-context";
+
+const render = customRender((props) => <HandlerContextProvider {...props} />);
 
 describe("<FetchUserData />", () => {
   it("renders the component as expected", async () => {
