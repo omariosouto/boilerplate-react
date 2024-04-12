@@ -7,6 +7,7 @@ import { FetchUserData } from "./FetchUserData";
 import { CustomerLoginWireIn } from "src/wire/in/customer";
 import { HandlerContextProvider } from "@commons/handler-context";
 
+// Global Setup - Base Render
 const render = customRender((props) => <HandlerContextProvider {...props} />);
 
 describe("<FetchUserData />", () => {
