@@ -10,9 +10,12 @@ import { CustomerLoginWireIn } from "src/wire/in/customer";
 describe("<FetchUserData />", () => {
   it("renders the component as expected", async () => {
     // Setup
-    httpMock.onGet("https://api.github.com/users/omariosouto").reply(200, generate(CustomerLoginWireIn, {
-      login: "omariosouto",
-    }));
+    httpMock.onGet("https://api.github.com/users/omariosouto").reply(
+      200,
+      generate(CustomerLoginWireIn, {
+       login: "omariosouto",
+      })
+    );
     render(<FetchUserData />);
 
     // Flow
