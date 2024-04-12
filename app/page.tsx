@@ -1,0 +1,1 @@
+export { HomeScreen as default } from "../src/diplomat/screens/HomeScreen/HomeScreen";
