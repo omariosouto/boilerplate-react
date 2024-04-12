@@ -24,7 +24,9 @@
     ],
     "baseUrl": ".",
     "paths": {
-      "@commons/http-client/*": ["commons/http-client/*"]
+      "@commons/http-client/*": ["commons/http-client/*"],
+      "@commons/errors": ["commons/errors/errors.tsx"],
+      "@commons/handler-context": ["commons/handler-context/index.tsx"],
     }
   },
   "include": [
