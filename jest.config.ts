@@ -12,8 +12,6 @@ const createJestConfig = nextJest({
 const moduleNameMapper = pathsToModuleNameMapper(compilerOptions.paths, {
   prefix: "<rootDir>/",
 });
-
-console.log("moduleNameMapper", moduleNameMapper);
  
 // Add any custom config to be passed to Jest
 const config: Config = {

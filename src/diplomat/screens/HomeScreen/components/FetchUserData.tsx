@@ -10,7 +10,6 @@ export function FetchUserData() {
     <div>
       <button
         onClick={withHandlerContext(async ({ event }) => {
-          console.log(event);
           const data = await fetchUserDataController();
           setUser(data);
         })}
