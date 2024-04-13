@@ -7,6 +7,12 @@ export function FetchUserData() {
   const { withHandlerContext } = useHandlerContext();
   const [user, setUser] = React.useState<Customer | null>(null);
 
+  window.addEventListener("resize", withHandlerContext(async ({
+    event
+  }) => {
+    console.log("Global error handler", event);
+  }));
+
   return (
     <div>
       <button
