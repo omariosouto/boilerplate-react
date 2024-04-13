@@ -7,7 +7,11 @@ import { CustomerLoginWireIn } from "../../../../wire/in/customer";
 import { HandlerContextProvider } from "@commons/handler-context";
 
 // Global Setup - Base Render
-const render = customRender((props) => <HandlerContextProvider {...props} />);
+const render = customRender((props) => (
+  <HandlerContextProvider
+    {...props}
+  />
+));
 
 describe("<FetchUserData />", () => {
   it("renders the component as expected", async () => {
@@ -15,7 +19,7 @@ describe("<FetchUserData />", () => {
     httpMock.onGet("https://api.github.com/users/omariosouto").reply(
       200,
       generate(CustomerLoginWireIn, {
-       login: "omariosouto",
+        login: "omariosouto",
       })
     );
     render(<FetchUserData />);
