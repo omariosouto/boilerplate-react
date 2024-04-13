@@ -1,7 +1,8 @@
 import React from "react";
-import { fetchUserDataController } from "../../../../controllers/customer/customer";
+import { fetchUserDataController, forceErrorController } from "../../../../controllers/customer/customer";
 import { useHandlerContext } from "@commons/handler-context";
 import { Customer } from "src/domain/customer";
+import { CustomError, NotFoundError } from "@commons/errors";
 
 export function FetchUserData() {
   const { withHandlerContext } = useHandlerContext();
@@ -10,18 +11,31 @@ export function FetchUserData() {
   window.addEventListener("resize", withHandlerContext(async ({
     event
   }) => {
-    console.log("Global error handler", event);
+    console.log("Custom Event", event);
   }));
 
   return (
     <div>
       <button
+        style={{
+          color: "blue",
+        }}
         onClick={withHandlerContext(async () => {
           const data = await fetchUserDataController();
           setUser(data);
         })}
       >
         Fetch user data
+      </button>
+      <button
+        onClick={withHandlerContext(async function onClickUIHandler() {
+          forceErrorController();
+        })}
+        style={{
+          color: "red",
+        }}
+      >
+        Throw Error
       </button>
       <pre>
         <code>

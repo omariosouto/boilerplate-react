@@ -8,19 +8,26 @@ export function withHandlerContext(ctx: AppContext) {
   return function wrapper<T>(callback: CallbackFunction<T>) {
     const context: AppContext = ctx;
 
-    const output = (event: T): void => {
+    const output = async (event: T): Promise<void> => {
       try {
-        callback({ context, event });
+        console.log("[BEFORE] Event", event);
+        await callback({ context, event });
+        console.log("[AFTER] Event", event);
       } catch (error) {
-        if (error instanceof NotFoundError) {
-          console.error("Not Found Error");
-          // Handle NotFoundError specifically
-        } else if (error instanceof CustomError) {
-          // Handle general CustomError that is not a NotFoundError
-        } else if (error instanceof Error) {
-          throw error; // Rethrow if it's a general Error
-        }
+        console.log("[ERROR] Error", error);
       }
+      // Promise.resolve(callback({ context, event }))
+      //   .then(() => {
+      //     console.log("Success");
+      //   })
+      //   .catch((error) => {
+      //     if (error instanceof CustomError) {
+      //       console.warn("[intercepted] Custom Error", error);
+      //       // Handle general CustomError that is not a NotFoundError
+      //     } else if (error instanceof Error) {
+      //       throw error; // Rethrow if it's a general Error
+      //     }
+      //   });
     };
   
     return output;
