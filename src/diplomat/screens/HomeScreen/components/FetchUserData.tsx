@@ -29,7 +29,7 @@ export function FetchUserData() {
       </button>
       <button
         onClick={withHandlerContext(async function onClickUIHandler() {
-          forceErrorController();
+          await forceErrorController();
         })}
         style={{
           color: "red",
