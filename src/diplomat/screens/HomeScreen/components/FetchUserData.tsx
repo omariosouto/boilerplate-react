@@ -8,11 +8,13 @@ export function FetchUserData() {
   const { withHandlerContext } = useHandlerContext();
   const [user, setUser] = React.useState<Customer | null>(null);
 
-  window.addEventListener("resize", withHandlerContext(async ({
-    event
-  }) => {
-    console.log("Custom Event", event);
-  }));
+  React.useEffect(() => {
+    window.addEventListener("resize", withHandlerContext(async ({
+      event
+    }) => {
+      console.log("Custom Event", event);
+    }));
+  })
 
   return (
     <div>
